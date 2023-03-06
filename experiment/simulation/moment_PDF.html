@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>math.js | plot</title>
+  <script src="https://unpkg.com/mathjs@10.6.1/lib/browser/math.js"></script>
+
+  <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+	<link rel="stylesheet" href="./css/main.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Exo:ital@1&display=swap" rel="stylesheet">
+  
+  <style>
+    input[type=text] {
+      width: 300px;
+    }
+    input {
+      padding: 6px;
+    }
+    body, html, input {
+      font-family: sans-serif;
+      font-size: 11pt;
+
+    }
+    form {
+      margin: 30px 80px;
+    }
+  </style>
+
+</head>
+
+<body>
+      <div class="form-group" style="border: 0.5px solid rgb(98, 98, 98);
+            align-self: center;
+            border-radius: 16px;
+            background: #37474F;
+            margin: 10px;
+            padding: 30px;
+            height: fit-content;
+            width: 600px;
+            box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);">
+
+       <div style="
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               flex-direction: column;
+               margin-bottom: 2em;
+               color: aliceblue;
+               ">
+           <h1 style="font-family: 'Rokkitt', serif;">Moments PDF</h1>
+       </div>
+<form id="form">
+  <p> Upper limit of x is 10000</p>
+  <p> P(X = x) ≥ 0</p>
+  <label for="eq">Enter PDF:</label>
+  <input type="text" id="eq" value="6*x*(1-x)" />
+  <br>
+  <br>
+  <input type="number" id="slower" value="0" class="inlonger" style="text-align: left;" onkeyup="iptfieldCheck(this, 'r', 'i');" > 
+  <label> ≤ x  ≤ </label>
+  <input type="number" id="supper" value="1" class="inlonger" style="text-align: left;" onkeyup="iptfieldCheck(this, 'r', 'i');" >
+  
+  <br>
+  <br>
+  <p>r ᵗʰ moment around k</p>
+  <p>If r = 1, k = 0, then the input will be 1, 0</p>
+  
+  <p>Enter r and k (r, k):</p>
+
+  <input type="text" id="rk" />
+
+</form>
+</div>
+<div id="output"></div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.0/p5.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.0/addons/p5.dom.min.js'></script>
+<script>
+  var input, button, outputText;
+
+  function setup() {
+  //create input text box
+    //input = createInput();
+  //create button with text "Derive!"
+    button = createButton('Calculate Moment');
+
+  //Whenever  the button is clicked, run function "evaluate"
+    button.mousePressed(evaluate);
+
+  }
+
+  function evaluate() {
+  //input
+    let strIn_1 = document.getElementById("rk").value;
+    let r = strIn_1[0];
+    let k = strIn_1[3];
+    var buff = ""
+    for (let i = 0; i < r; i++){
+      buff = buff + "*(x-" + k + ')';
+    }
+    var strIn = document.getElementById('eq').value + buff + ":" + document.getElementById('slower').value + "," + document.getElementById('supper').value;
+
+  //find all equation before the ":";
+    var inEquation = strIn.substring(0, strIn.indexOf(":")).replaceAll("pi","Math.PI");
+  //find the number between ":" and ","
+    var inA = strIn.substring(strIn.indexOf(":") + 1, strIn.indexOf(","));
+    var inB = strIn.substring(strIn.indexOf(",") + 1, strIn.length);
+
+    inA = eval(inA.replaceAll("pi","Math.PI"));
+    inB = eval(inB.replaceAll("pi","Math.PI"));
+
+  //create the output texts
+    if (integrate(inA, inB, inEquation, .001) < 0){
+      outputText = createElement('p', "INVALID DATA");
+    }
+    else{
+      outputText = createElement('p', r + "ᵗʰ moment around " + k + " = " + integrate(inA, inB, inEquation, .001));
+    }
+    
+  }
+
+  function plugIn(x, equation) {
+    return eval(equation);
+  }
+
+  function trapezoid(length, h1, h2) {
+    return ((h1 + h2) / 2) * length;
+  }
+
+  function integrate(a, b, equation, stepsize) {
+    var area = 0;
+    for (var i = a*1.0; i < b; i += stepsize) {
+      var h1 = plugIn(i, equation);
+      var h2 = plugIn(i + stepsize, equation);
+      area = area + trapezoid(stepsize, h1, h2);
+    }
+    area = Math.round(area * 10000) / 10000;
+    return area;
+  }
+
+
+
+
+
+  String.prototype.replaceAll = function (find, replace) {
+      var str = this;
+      return str.replace(new RegExp(find.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'g'), replace);
+  };
+</script>
+</body>
+</html>
