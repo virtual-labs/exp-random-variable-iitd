@@ -12,13 +12,13 @@
 	
 	 <button onclick="window.location.href = 'moment_PDF.html';">moment_PDF</button>
 	 <button onclick="window.location.href = 'moment_PMF.html';">moment_PMF</button>
-	 <input type="submit" onClick="myFunction()" value="HOME" class="button" />
-	  <script>
-	    function myFunction() {
-	      window.location.href = "FirstPage.html";
-	    }
-	  </script>
-	
+	<div class="dropdown">
+	  <button onclick="myFunction()" class="dropbtn">moment</button>
+	  <div id="myDropdown" class="dropdown-content">
+	    <a onclick="window.location.href = 'moment_PDF.html';">moment_PDF</a>
+	    <a onclick="window.location.href = 'moment_PMF.html';">moment_PMF</a>
+	  </div>
+	</div>
 
 	<!-- Add JS at the bottom of HTML file --> 
         <script src="./js/main.js"></script>
