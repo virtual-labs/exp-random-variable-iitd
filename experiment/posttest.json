@@ -2,38 +2,89 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What is the formula for calculating the rth moment of a random variable X around k?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "\\( \\mu_r = \\int_{-\\infty}^{\\infty} (x - k)^r f(x) dx \\)",
+        "b": "\\( \\mu_r = \\int_{-\\infty}^{\\infty} (x + k)^r f(x) dx \\)",
+        "c": "\\( \\mu_r = \\int_{-\\infty}^{\\infty} x^r f(x) dx \\)",
+        "d": "\\( \\mu_r = \\int_{k}^{\\infty} x^r f(x) dx \\)"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect. Please reconsider the formula for calculating the rth moment of a random variable around k.",
+        "b": "Incorrect. Please reconsider the formula for calculating the rth moment of a random variable around k.",
+        "c": "Incorrect. Please reconsider the formula for calculating the rth moment of a random variable around k.",
+        "d": "Correct! The formula for calculating the rth moment of a random variable X around k is given by this integral."
       },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
+      "correctAnswer": "d",
+      "difficulty": "intermediate"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "In the context of moments, what does the value of r represent?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "The mean of the random variable",
+        "b": "The standard deviation of the random variable",
+        "c": "The order of the moment",
+        "d": "The range of the random variable"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect. Please reconsider the meaning of the variable r in the context of moments.",
+        "b": "Incorrect. Please reconsider the meaning of the variable r in the context of moments.",
+        "c": "Correct! In the context of moments, the value of r represents the order of the moment being calculated.",
+        "d": "Incorrect. Please reconsider the meaning of the variable r in the context of moments."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
+    },
+    {
+      "question": "If a random variable X has a probability density function \\(f(x) = 2x\\) for \\(0 \\leq x \\leq 1\\), what is the first moment around k=0?",
+      "answers": {
+        "a": "1",
+        "b": "1.5",
+        "c": "2",
+        "d": "0.5"
+      },
+      "explanations": {
+        "a": "Incorrect. Please reconsider the calculation of the first moment around k=0 for the given probability density function.",
+        "b": "Incorrect. Please reconsider the calculation of the first moment around k=0 for the given probability density function.",
+        "c": "Incorrect. Please reconsider the calculation of the first moment around k=0 for the given probability density function.",
+        "d": "Correct! To calculate the first moment around k=0, integrate \\(x \\times 2x\\) from 0 to 1."
+      },
+      "correctAnswer": "d",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which of the following statements about moments is true?",
+      "answers": {
+        "a": "Moments are only defined for discrete random variables.",
+        "b": "Moments provide information about the shape of the probability distribution.",
+        "c": "Moments are always positive values.",
+        "d": "Moments are independent of the probability density function."
+      },
+      "explanations": {
+        "a": "Incorrect. Please reconsider the nature of moments and their applicability to different types of random variables.",
+        "b": "Correct! Moments provide information about the shape of the probability distribution, including features like mean, variance, skewness, and kurtosis.",
+        "c": "Incorrect. Please reconsider the possible range of values for moments.",
+        "d": "Incorrect. Please reconsider the relationship between moments and probability density functions."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "For a continuous random variable X, if the rth moment around k exists, what can be said about the (r-1)th moment around k?",
+      "answers": {
+        "a": "It must exist.",
+        "b": "It may or may not exist.",
+        "c": "It does not exist.",
+        "d": "It is always equal to zero."
+      },
+      "explanations": {
+        "a": "Incorrect. Please reconsider the relationship between the existence of moments of different orders for a continuous random variable.",
+        "b": "Incorrect. Please reconsider the relationship between the existence of moments of different orders for a continuous random variable.",
+        "c": "Incorrect. Please reconsider the relationship between the existence of moments of different orders for a continuous random variable.",
+        "d": "Correct! If the rth moment around k exists, then the (r-1)th moment around k must also exist."
+      },
+      "correctAnswer": "d",
+      "difficulty": "intermediate"
     }
   ]
 }
