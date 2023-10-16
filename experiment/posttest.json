@@ -2,20 +2,20 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "What is the formula for calculating the rth moment of a random variable X around k?",
+     "question": "For a continuous random variable X with probability density function f(x) = 3x^2 for  0 < x < 1, what is the second moment  r = 2 of X?",
       "answers": {
-        "a": "\\( \\mu_r = \\int_{-\\infty}^{\\infty} (x - k)^r f(x) dx \\)",
-        "b": "\\( \\mu_r = \\int_{-\\infty}^{\\infty} (x + k)^r f(x) dx \\)",
-        "c": "\\( \\mu_r = \\int_{-\\infty}^{\\infty} x^r f(x) dx \\)",
-        "d": "\\( \\mu_r = \\int_{k}^{\\infty} x^r f(x) dx \\)"
+        "a": "0.6",
+        "b": "0.4",
+        "c": "0.2",
+        "d": "0.8"
       },
       "explanations": {
-        "a": "Incorrect. Please reconsider the formula for calculating the rth moment of a random variable around k.",
-        "b": "Incorrect. Please reconsider the formula for calculating the rth moment of a random variable around k.",
-        "c": "Incorrect. Please reconsider the formula for calculating the rth moment of a random variable around k.",
-        "d": "Correct! The formula for calculating the rth moment of a random variable X around k is given by this integral."
+        "a": "Incorrect. Please recheck your calculation for the second moment of the random variable.",
+        "b": "Incorrect. Please recheck your calculation for the second moment of the random variable.",
+        "c": "Correct! The second moment of X, calculated as is 0.2.",
+        "d": "Incorrect. Please recheck your calculation for the second moment of the random variable."
       },
-      "correctAnswer": "d",
+      "correctAnswer": "c",
       "difficulty": "intermediate"
     },
     {
