@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-     "question": "For a continuous random variable X with probability density function f(x) = 3x^2 for  0 < x < 1, what is the second moment  r = 2 of X?",
+     "question": "For a continuous random variable X with probability density function f(x) = 3x^2 for  0 < x < 1, what is the second-moment r = 2 of X?",
       "answers": {
         "a": "0.6",
         "b": "0.4",
@@ -36,7 +36,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "If a random variable X has a probability density function \\(f(x) = 2x\\) for \\(0 \\leq x \\leq 1\\), what is the first moment around k=0?",
+      "question": "If a random variable X has a probability density function f(x) = 2x for 0 < x < 1, what is the first moment around k=0?",
       "answers": {
         "a": "1",
         "b": "1.5",
@@ -47,7 +47,7 @@
         "a": "Incorrect. Please reconsider the calculation of the first moment around k=0 for the given probability density function.",
         "b": "Incorrect. Please reconsider the calculation of the first moment around k=0 for the given probability density function.",
         "c": "Incorrect. Please reconsider the calculation of the first moment around k=0 for the given probability density function.",
-        "d": "Correct! To calculate the first moment around k=0, integrate \\(x \\times 2x\\) from 0 to 1."
+        "d": "Correct! To calculate the first moment around k=0, integrate  2x^2 from 0 to 1."
       },
       "correctAnswer": "d",
       "difficulty": "intermediate"

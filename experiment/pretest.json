@@ -40,8 +40,8 @@
       "answers": {
         "a": "0",
         "b": "1",
-        "c": "\\(\\mu\\)",
-        "d": "\\(\\sigma^2\\)"
+        "c": "Mean",
+        "d": "Variance"
       },
       "explanations": {
         "a": "Correct! The first moment around zero for any random variable X is always 0.",
@@ -70,7 +70,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "If a random variable X has a mean (\\(\\mu\\)) of 10, what does the second moment around 10 represent?",
+      "question": "If a random variable X has a mean of 10, what does the second moment around 10 represent?",
       "answers": {
         "a": "Variance of the random variable",
         "b": "Mean of the random variable",
