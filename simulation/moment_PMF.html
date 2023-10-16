@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   
+<head>
+    <meta charset="utf-8">
+    <title>
+        Moment for Discrete Random Variable 
+    </title>
+    <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+	<link rel="stylesheet" href="./css/main.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Exo:ital@1&display=swap" rel="stylesheet">
+  
+      <style>
+    input[type=text] {
+      width: 300px;
+    }
+    input {
+      padding: 6px;
+    }
+    body, html, input {
+      font-family: sans-serif;
+      font-size: 11pt;
+
+    }
+    form {
+      margin: 30px 80px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-group" style="border: 0.5px solid rgb(98, 98, 98);
+            align-self: center;
+            border-radius: 16px;
+            background: #37474F;
+            margin: 10px;
+            padding: 30px;
+            height: fit-content;
+            width: 600px;
+            box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);">
+
+       <div style="
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               flex-direction: column;
+               margin-bottom: 2em;
+               color: aliceblue;
+               ">
+           <h1 style="font-family: 'Rokkitt', serif;">Moments PDF</h1>
+       </div>
+<form>
+   <h1>Please enter data</h1>
+   <p>Data should NOT be in fractions</p>
+   <p> Upper limit of x is 10000</p>
+   <p> P(X = x) ≥ 0</p>
+   <br>
+     <label for="Xs">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp x: </label> 
+       <input id="Xs" type="text">
+       <br>
+       <br>
+     <label for="Ys"> P(X = x): </label>
+   <input id="Ys" type="text">
+   <br>   
+   <br>
+  <input type="button" value="Save" onclick="savedata()">
+   <input type="button" value="Show data" onclick="GenerateTable()">
+   
+
+  <div id="dvTable"></div>
+</form>
+<div id="display"></div>
+<form>
+    <br>
+    <p>r ᵗʰ moment around k</p>
+    <label for="valAround">Enter k: </label>
+    <input id="valAround" type="text" value="0">
+    <br>
+    <input type="button" value="Submit" onclick="save()">
+   <br>
+   <br>
+   <label for="moments">Enter r: </label>
+   <input id="moments" type="text" value="0">
+   <br>
+   <input type="button" value="Calculate Moment" onclick="calculate()">
+</form>
+      
+
+<div id="display"></div>
+<script type="text/javascript">
+var arrX=new Array();
+var arrY=new Array();
+var momentAround=-1;
+var outputText;
+ 
+function savedata(){
+    var xs = document.getElementById('Xs').value;
+    var ys = document.getElementById('Ys').value;
+    
+    arrX[arrX.length]=xs;    
+    arrY[arrY.length]=ys;
+    
+  }
+  function save() {
+      momentAround = document.getElementById('valAround').value;
+      //document.getElementById('output').innerHTML = momentAround;
+  }
+function GenerateTable() {
+        //Build an array containing Customer records.
+    var customers = new Array();
+    customers.push(["x", "P(X = x)" ]);
+    for (let i = 0; i < arrY.length; i++){
+      customers.push([arrX[i], arrY[i]]);
+    }
+        
+ 
+        //Create a HTML Table element.
+    var table = document.createElement("TABLE");
+    table.border = "1";
+ 
+        //Get the count of columns.
+    var columnCount = customers[0].length;
+ 
+        //Add the header row.
+    var row = table.insertRow(-1);
+    for (var i = 0; i < columnCount; i++) {
+        var headerCell = document.createElement("TH");
+        headerCell.innerHTML = customers[0][i];
+        row.appendChild(headerCell);
+    }
+ 
+    //Add the data rows.
+    for (var i = 1; i < customers.length; i++) {
+        row = table.insertRow(-1);
+        for (var j = 0; j < columnCount; j++) {
+            var cell = row.insertCell(-1);
+            cell.innerHTML = customers[i][j];
+        }
+    }
+ 
+    var dvTable = document.getElementById("dvTable");
+    dvTable.innerHTML = "";
+    dvTable.appendChild(table);
+}
+
+function calculate(){
+    var exp = document.getElementById('moments').value;
+    var bool = false;
+    var ans = 0;
+    const k = arrX.length;
+    var sum = 0;
+    for (let i = 0; i < k; i++){
+        sum += Number(arrY[i]);
+        if (Number(arrY[i]) < 0){
+            bool = true;
+        }
+    }
+
+    if (sum > 1 || bool){
+        document.getElementById('output').innerHTML = "INVALID DATA";
+    }
+    else{
+        var temparrX = Array(k).fill(1);
+        //document.getElementById('output').innerHTML = "exp" + exp;
+        for (let i = 0; i < exp; i++){
+            for (let j = 0; j < k; j++){
+                temparrX[j] *= (arrX[j]-momentAround);
+            }
+        
+        }
+        for (let i = 0; i < arrY.length; i++){
+            ans += arrY[i]*temparrX[i];
+        }
+        //document.getElementById('output').innerHTML = sum;
+        outputText = exp + "ᵗʰ moment around " + momentAround + " = " + ans;
+        document.getElementById('output').innerHTML = outputText;
+    }
+    
+}
+document.getElementById('form').onsubmit = function (event) {
+    event.preventDefault()
+  }
+
+
+
+</script>
+  </div>
+ 
+
+
+<div id="output"></div> 
+</body>
+</html>

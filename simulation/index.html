@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   
+<head>
+    <meta charset="utf-8">
+    <title>
+        Moment for Discrete Random Variable 
+    </title>
+    <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+	<link rel="stylesheet" href="./css/main.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Exo:ital@1&display=swap" rel="stylesheet">
+  
+      <style>
+    input[type=text] {
+      width: 300px;
+    }
+    input {
+      padding: 6px;
+    }
+    body, html, input {
+      font-family: sans-serif;
+      font-size: 11pt;
+
+    }
+    form {
+      margin: 30px 80px;
+    }
+    #distribution{
+      color:black;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-group" style="border: 0.5px solid rgb(98, 98, 98);
+            align-self: center;
+            border-radius: 16px;
+            background: #37474F;
+            margin: 10px;
+            padding: 30px;
+            height: fit-content;
+            width: 600px;
+            box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);">
+<form id = "info" autocomplete="off">
+  <label for="distribution">Choose a distribution:</label>
+  <select id="distribution" onchange="change()">
+    <option value="" disabled selected> -- Select a distribution -- </option>
+          <option value="pdf">Moment_PDF </option>
+          <option value="pmf">Moment_PMF </option>
+  </select>
+  
+</form>
+</div>
+<script src="./changeFile.js"></script>
+
+<script src="../assets/js/iframeResize.js"></script></body>
+</html>
