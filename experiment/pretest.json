@@ -2,37 +2,88 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What does the term 'rth moment of a random variable around k' represent in statistics?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "The expected value of the random variable",
+        "b": "The variance of the random variable",
+        "c": "The rth power of the random variable",
+        "d": "The expected value of the rth power of the difference between the random variable and the constant k"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect. Please reconsider the definition of 'rth moment of a random variable around k.'",
+        "b": "Incorrect. Please reconsider the definition of 'rth moment of a random variable around k.'",
+        "c": "Incorrect. Please reconsider the definition of 'rth moment of a random variable around k.'",
+        "d": "Correct! The rth moment of a random variable around k represents the expected value of the rth power of the difference between the random variable and the constant k."
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In the context of moments, what does the 'rth central moment' signify?",
+      "answers": {
+        "a": "The moment around the mean of the distribution",
+        "b": "The moment around zero",
+        "c": "The moment around the median of the distribution",
+        "d": "The moment around a constant k"
+      },
+      "explanations": {
+        "a": "Incorrect. Please reconsider the definition of 'rth central moment.'",
+        "b": "Correct! The rth central moment represents the moment around zero.",
+        "c": "Incorrect. Please reconsider the definition of 'rth central moment.'",
+        "d": "Incorrect. Please reconsider the definition of 'rth central moment.'"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the first moment around zero for any random variable X?",
+      "answers": {
+        "a": "0",
+        "b": "1",
+        "c": "\\(\mu\\)",
+        "d": "\\(\\sigma^2\\)"
+      },
+      "explanations": {
+        "a": "Correct! The first moment around zero for any random variable X is always 0.",
+        "b": "Incorrect. Please reconsider the definition of the 'first moment around zero.'",
+        "c": "Incorrect. Please reconsider the definition of the 'first moment around zero.'",
+        "d": "Incorrect. Please reconsider the definition of the 'first moment around zero.'"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "When calculating moments, what role does the order of the moment (r) play?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "It determines the shape of the distribution",
+        "b": "It determines the spread of the distribution",
+        "c": "It specifies the power to which the difference between the random variable and the constant is raised",
+        "d": "It determines the mean of the distribution"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect. Please reconsider the role of the order of the moment (r) in calculating moments.",
+        "b": "Incorrect. Please reconsider the role of the order of the moment (r) in calculating moments.",
+        "c": "Correct! The order of the moment (r) specifies the power to which the difference between the random variable and the constant is raised.",
+        "d": "Incorrect. Please reconsider the role of the order of the moment (r) in calculating moments."
       },
       "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "If a random variable X has a mean (\\(\\mu\\)) of 10, what does the second moment around 10 represent?",
+      "answers": {
+        "a": "Variance of the random variable",
+        "b": "Mean of the random variable",
+        "c": "Skewness of the distribution",
+        "d": "Kurtosis of the distribution"
+      },
+      "explanations": {
+        "a": "Correct! The second moment around 10 represents the variance of the random variable.",
+        "b": "Incorrect. Please reconsider the interpretation of the second moment around a specific value.",
+        "c": "Incorrect. Please reconsider the interpretation of the second moment around a specific value.",
+        "d": "Incorrect. Please reconsider the interpretation of the second moment around a specific value."
+      },
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]
